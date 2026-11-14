@@ -1,147 +1,859 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC College of Technology</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
-            background: #f4f7fb;
-            color: #263248;
-        }
-        header {
-            background: linear-gradient(135deg, #172554, #2563eb);
-            color: white;
-            text-align: center;
-            padding: 55px 20px 35px;
-        }
-        header h1 { font-size: 42px; margin-bottom: 8px; }
-        header p { font-size: 18px; opacity: .9; }
-        nav {
-            background: white;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            padding: 15px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            box-shadow: 0 3px 12px rgba(0,0,0,.08);
-        }
-        nav a {
-            color: #172554;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 9px 16px;
-            border-radius: 20px;
-        }
-        nav a:hover { background: #2563eb; color: white; }
-        .container { max-width: 1100px; margin: auto; padding: 45px 20px; }
-        .hero {
-            background: white;
-            border-radius: 20px;
-            padding: 45px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(23,37,84,.08);
-            margin-bottom: 35px;
-        }
-        .hero h2 { color: #172554; font-size: 32px; margin-bottom: 12px; }
-        .hero p { max-width: 750px; margin: auto; color: #64748b; }
-        .section-title {
-            text-align: center;
-            color: #172554;
-            margin: 35px 0 22px;
-            font-size: 28px;
-        }
-        .courses {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-        .card {
-            background: white;
-            padding: 25px 18px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-            transition: .25s;
-        }
-        .card:hover { transform: translateY(-7px); box-shadow: 0 12px 25px rgba(37,99,235,.15); }
-        .card .icon { font-size: 35px; margin-bottom: 12px; }
-        .card h3 { color: #1d4ed8; font-size: 17px; }
-        .news {
-            background: white;
-            border-radius: 18px;
-            padding: 28px 35px;
-            box-shadow: 0 8px 25px rgba(23,37,84,.06);
-        }
-        .news li { margin: 13px 0; padding-left: 5px; }
-        .news li::marker { color: #2563eb; font-weight: bold; }
-        footer {
-            background: #172554;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 20px;
-        }
-        @media (max-width: 800px) {
-            header h1 { font-size: 32px; }
-            .courses { grid-template-columns: repeat(2, 1fr); }
-            nav { flex-wrap: wrap; }
-            .hero { padding: 30px 20px; }
-        }
-        @media (max-width: 500px) {
-            .courses { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>ABC College of Technology</h1>
-        <p>Knowledge &nbsp; | &nbsp; Innovation &nbsp; | &nbsp; Excellence</p>
-    </header>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="#17324d" name="theme-color"/>
+  <title>
+   ABC College of Technology
+  </title>
+  <style>
+   :root {
+    --primary:#17324d;
+    --secondary:#315b78;
+    --accent:#c5a46d;
+    --background:#f5f7f9;
+    --text:#263746;
+    --muted:#667684;
+    --white:#fff;
+    --border:#e2e8ed;
+}
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Courses</a>
-        <a href="#">Admission</a>
-        <a href="#">Contact Us</a>
+* {
+    box-sizing:border-box
+}
+
+html {
+    scroll-behavior:smooth;
+    scroll-padding-top:78px
+}
+
+body {
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--text);
+    line-height:1.6;
+    background:#fff
+}
+
+a {
+    text-decoration:none;
+    color:inherit
+}
+
+.container {
+    width:min(1120px,calc(100% - 40px));
+    margin:auto
+}
+
+/* Navigation */
+header {
+    height:76px;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:100
+}
+
+.navbar {
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px
+}
+
+.brand {
+    display:flex;
+    align-items:center;
+    gap:11px;
+    color:var(--primary);
+    font-weight:700;
+    font-size:17px;
+    white-space:nowrap
+}
+
+.brand-mark {
+    height:40px;
+    width:40px;
+    background:var(--primary);
+    color:#fff;
+    display:grid;
+    place-items:center;
+    font-weight:700;
+    font-size:13px;
+    border-radius:4px
+}
+
+.brand small {
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+    letter-spacing:1.7px;
+    font-weight:600;
+    margin-top:2px
+}
+
+.nav-links {
+    display:flex;
+    align-items:center;
+    gap:27px
+}
+
+.nav-links a {
+    font-size:13px;
+    font-weight:600;
+    color:#405364;
+    transition:color .2s
+}
+
+.nav-links a:hover,.nav-links a.active {
+    color:var(--accent)
+}
+
+.nav-cta {
+    background:var(--primary);
+    color:#fff!important;
+    padding:10px 17px;
+    border-radius:3px
+}
+
+.nav-cta:hover {
+    background:var(--secondary);
+    color:#fff!important
+}
+
+.menu-btn {
+    display:none;
+    border:0;
+    background:none;
+    color:var(--primary);
+    font-size:25px;
+    cursor:pointer
+}
+
+/* One and only homepage image */
+.hero {
+    min-height:490px;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(90deg,rgba(15,39,60,.88),rgba(15,39,60,.48)),
+    url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1900&q=85') center 48%/cover no-repeat;
+    color:#fff
+}
+
+.hero-content {
+    padding:78px 0;
+    max-width:680px
+}
+
+.hero-kicker {
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:#e0c99f;
+    font-weight:700
+}
+
+.hero h1 {
+    font-size:clamp(34px,5vw,55px);
+    line-height:1.15;
+    font-weight:600;
+    margin:17px 0
+}
+
+.hero p {
+    max-width:590px;
+    color:#e7edf2;
+    font-size:16px;
+    margin:0 0 28px
+}
+
+.button {
+    display:inline-block;
+    background:var(--accent);
+    color:#172d40;
+    padding:12px 21px;
+    border-radius:3px;
+    font-size:13px;
+    font-weight:700
+}
+
+.button:hover {
+    background:#d5b982
+}
+
+/* Content sections */
+.section {
+    padding:68px 0
+}
+
+.section-heading {
+    margin-bottom:28px
+}
+
+.section-heading .eyebrow {
+    font-size:11px;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    color:#9b7a46;
+    font-weight:700
+}
+
+h2 {
+    font-size:30px;
+    line-height:1.25;
+    color:var(--primary);
+    margin:8px 0 12px;
+    font-weight:600
+}
+
+.section-heading p,.about-text p {
+    color:var(--muted);
+    font-size:14px;
+    max-width:720px;
+    margin:0
+}
+
+.about-box {
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:45px;
+    align-items:start
+}
+
+.about-points {
+    border-left:3px solid var(--accent);
+    padding:5px 0 5px 22px
+}
+
+.about-points strong {
+    display:block;
+    color:var(--primary);
+    font-size:15px;
+    margin-bottom:5px
+}
+
+.about-points p {
+    color:var(--muted);
+    font-size:13px;
+    margin:0
+}
+
+/* Courses */
+.courses-section {
+    background:var(--background)
+}
+
+.course-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px
+}
+
+.course-card {
+    background:#fff;
+    border:1px solid var(--border);
+    padding:23px 19px;
+    border-radius:4px;
+    transition:box-shadow .2s,border-color .2s
+}
+
+.course-card:hover {
+    border-color:#c5a46d;
+    box-shadow:0 8px 24px rgba(23,50,77,.08)
+}
+
+.course-number {
+    font-size:11px;
+    color:#a17f4b;
+    font-weight:700;
+    letter-spacing:1px
+}
+
+.course-card h3 {
+    font-size:17px;
+    line-height:1.35;
+    color:var(--primary);
+    margin:13px 0 8px
+}
+
+.course-card p {
+    font-size:13px;
+    color:var(--muted);
+    margin:0
+}
+
+/* News */
+.news-list {
+    border-top:1px solid var(--border)
+}
+
+.news-item {
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:17px 3px;
+    border-bottom:1px solid var(--border)
+}
+
+.news-label {
+    min-width:105px;
+    color:#9b7a46;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.7px
+}
+
+.news-item strong {
+    font-size:14px;
+    color:var(--primary);
+    font-weight:600
+}
+
+/* Contact */
+.contact-section {
+    background:var(--background)
+}
+
+.contact-layout {
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:35px
+}
+
+.contact-info,.contact-form {
+    background:#fff;
+    border:1px solid var(--border);
+    padding:28px;
+    border-radius:4px
+}
+
+.contact-info h3,.contact-form h3 {
+    font-size:19px;
+    color:var(--primary);
+    margin:0 0 10px
+}
+
+.contact-info>p,.contact-form>p {
+    font-size:13px;
+    color:var(--muted);
+    margin:0 0 22px
+}
+
+.contact-line {
+    padding:14px 0;
+    border-top:1px solid var(--border)
+}
+
+.contact-line small {
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-weight:700
+}
+
+.contact-line a,.contact-line span {
+    font-size:14px;
+    color:var(--primary);
+    font-weight:600;
+    overflow-wrap:anywhere
+}
+
+.form-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px
+}
+
+label {
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:#43576a;
+    margin-bottom:5px
+}
+
+input,select,textarea {
+    width:100%;
+    border:1px solid #d8e0e7;
+    padding:11px 12px;
+    font:13px Arial,sans-serif;
+    border-radius:3px;
+    background:#fff;
+    color:var(--text);
+    outline:none
+}
+
+input:focus,select:focus,textarea:focus {
+    border-color:var(--secondary)
+}
+
+.form-field {
+    margin-bottom:13px
+}
+
+textarea {
+    min-height:85px;
+    resize:vertical
+}
+
+.submit {
+    border:0;
+    cursor:pointer;
+    font:700 13px Arial,sans-serif
+}
+
+footer {
+    background:var(--primary);
+    color:#dce4eb;
+    padding:22px 0;
+    font-size:12px
+}
+
+.footer-inner {
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap
+}
+
+footer strong {
+    color:#fff
+}
+
+@media(max-width:850px) {
+.nav-links {
+    gap:16px
+}
+
+.course-grid {
+    grid-template-columns:repeat(2,1fr)
+}
+
+.about-box {
+    gap:25px
+}
+
+}
+
+@media(max-width:680px) {
+header {
+    height:68px
+}
+
+.navbar {
+    position:relative
+}
+
+.menu-btn {
+    display:block
+}
+
+.nav-links {
+    display:none;
+    position:absolute;
+    top:67px;
+    left:-20px;
+    right:-20px;
+    background:#fff;
+    padding:12px 20px 18px;
+    border-bottom:1px solid var(--border);
+    box-shadow:0 8px 14px rgba(23,50,77,.08);
+    flex-direction:column;
+    align-items:stretch;
+    gap:0
+}
+
+.nav-links.open {
+    display:flex
+}
+
+.nav-links a {
+    padding:12px 4px;
+    border-bottom:1px solid #edf0f3
+}
+
+.nav-links .nav-cta {
+    margin-top:10px;
+    text-align:center
+}
+
+.hero {
+    min-height:440px;
+    background-position:58% center
+}
+
+.hero-content {
+    padding:65px 0
+}
+
+.hero p {
+    font-size:14px
+}
+
+.section {
+    padding:52px 0
+}
+
+.about-box,.contact-layout {
+    grid-template-columns:1fr;
+    gap:20px
+}
+
+.course-grid {
+    grid-template-columns:1fr 1fr
+}
+
+.news-item {
+    align-items:flex-start;
+    flex-direction:column;
+    gap:3px
+}
+
+.contact-info,.contact-form {
+    padding:22px
+}
+
+}
+
+@media(max-width:420px) {
+.container {
+    width:calc(100% - 30px)
+}
+
+.course-grid,.form-grid {
+    grid-template-columns:1fr
+}
+
+.hero h1 {
+    font-size:36px
+}
+
+h2 {
+    font-size:26px
+}
+
+}
+  </style>
+ </head>
+ <body>
+  <header>
+   <div class="container navbar">
+    <a class="brand" href="#home">
+     <span class="brand-mark">
+      ABC
+     </span>
+     <span>
+      ABC COLLEGE
+      <small>
+       OF TECHNOLOGY
+      </small>
+     </span>
+    </a>
+    <button aria-expanded="false" aria-label="Toggle navigation" class="menu-btn" onclick="toggleNav()">
+     ☰
+    </button>
+    <nav class="nav-links" id="navLinks">
+     <a href="#home" onclick="closeNav()">
+      Home
+     </a>
+     <a href="#about" onclick="closeNav()">
+      About Us
+     </a>
+     <a href="#courses" onclick="closeNav()">
+      Courses
+     </a>
+     <a href="#news" onclick="closeNav()">
+      Latest News
+     </a>
+     <a href="#contact" onclick="closeNav()">
+      Contact
+     </a>
+     <a class="nav-cta" href="#contact" onclick="closeNav()">
+      Enquire Now
+     </a>
     </nav>
+   </div>
+  </header>
+  <main>
+   <section class="hero" id="home">
+    <div class="container">
+     <div class="hero-content">
+      <div class="hero-kicker">
+       Knowledge · Innovation · Excellence
+      </div>
+      <h1>
+       Building Knowledge.
+       <br/>
+       Creating Opportunities.
+      </h1>
+      <p>
+       Welcome to ABC College of Technology. We provide quality education in Computer Science, Information Technology and Management to help students prepare for a changing world.
+      </p>
+      <a class="button" href="#courses">
+       Explore Our Courses
+      </a>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="about">
+    <div class="container">
+     <div class="about-box">
+      <div class="about-text">
+       <div class="section-heading">
+        <span class="eyebrow">
+         About ABC College
+        </span>
+        <h2>
+         Welcome to ABC College of Technology
+        </h2>
+        <p>
+         ABC College of Technology is committed to providing quality education in Computer Science, Information Technology and Management. Our focus is on building strong fundamentals, encouraging innovation and supporting students in their academic and professional growth.
+        </p>
+       </div>
+      </div>
+      <div class="about-points">
+       <strong>
+        Our approach to education
+       </strong>
+       <p>
+        Knowledge, practical learning and continuous development form the foundation of our academic environment.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="courses-section" id="courses">
+    <div class="container section">
+     <div class="section-heading">
+      <span class="eyebrow">
+       Academic programmes
+      </span>
+      <h2>
+       Our Courses
+      </h2>
+      <p>
+       Explore our programmes in computer applications and computer science.
+      </p>
+     </div>
+     <div class="course-grid">
+      <article class="course-card">
+       <span class="course-number">
+        01
+       </span>
+       <h3>
+        Bachelor of Computer Applications (BCA)
+       </h3>
+       <p>
+        Undergraduate programme in computer applications and software fundamentals.
+       </p>
+      </article>
+      <article class="course-card">
+       <span class="course-number">
+        02
+       </span>
+       <h3>
+        Master of Computer Applications (MCA)
+       </h3>
+       <p>
+        Postgraduate programme to advance computing and application skills.
+       </p>
+      </article>
+      <article class="course-card">
+       <span class="course-number">
+        03
+       </span>
+       <h3>
+        B.Tech Computer Science
+       </h3>
+       <p>
+        Engineering programme focused on computer science and technology.
+       </p>
+      </article>
+      <article class="course-card">
+       <span class="course-number">
+        04
+       </span>
+       <h3>
+        M.Tech Computer Science
+       </h3>
+       <p>
+        Advanced study in computer science and related technologies.
+       </p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="news">
+    <div class="container">
+     <div class="section-heading">
+      <span class="eyebrow">
+       What's happening
+      </span>
+      <h2>
+       Latest News
+      </h2>
+      <p>
+       Announcements and updates from ABC College of Technology.
+      </p>
+     </div>
+     <div class="news-list">
+      <div class="news-item">
+       <span class="news-label">
+        Admissions
+       </span>
+       <strong>
+        Admission open for 2026–27
+       </strong>
+      </div>
+      <div class="news-item">
+       <span class="news-label">
+        Campus
+       </span>
+       <strong>
+        Annual Technical Fest will be held in September
+       </strong>
+      </div>
+      <div class="news-item">
+       <span class="news-label">
+        Careers
+       </span>
+       <strong>
+        Registration open for Internship Program
+       </strong>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="contact-section" id="contact">
+    <div class="container section">
+     <div class="section-heading">
+      <span class="eyebrow">
+       Get in touch
+      </span>
+      <h2>
+       Contact Us
+      </h2>
+      <p>
+       For course details, admission enquiries or other information, please contact the college.
+      </p>
+     </div>
+     <div class="contact-layout">
+      <div class="contact-info">
+       <h3>
+        ABC College of Technology
+       </h3>
+       <p>
+        We will be happy to hear from you.
+       </p>
+       <div class="contact-line">
+        <small>
+         Email
+        </small>
+        <a href="mailto:college@example.com">
+         college@example.com
+        </a>
+       </div>
+       <div class="contact-line">
+        <small>
+         Phone
+        </small>
+        <a href="tel:+910000000000">
+         +91 00000 00000
+        </a>
+       </div>
+       <div class="contact-line">
+        <small>
+         Address
+        </small>
+        <span>
+         College address, City, State, India
+        </span>
+       </div>
+      </div>
+      <div class="contact-form">
+       <h3>
+        Send an Enquiry
+       </h3>
+       <p>
+        Enter your details and message below.
+       </p>
+       <form onsubmit="event.preventDefault();alert('Thank you. Please connect this form to an email service or backend to receive enquiries.');">
+        <div class="form-grid">
+         <div class="form-field">
+          <label for="name">
+           Full Name
+          </label>
+          <input id="name" placeholder="Your name" required=""/>
+         </div>
+         <div class="form-field">
+          <label for="phone">
+           Phone Number
+          </label>
+          <input id="phone" placeholder="Your phone number" required="" type="tel"/>
+         </div>
+        </div>
+        <div class="form-field">
+         <label for="email">
+          Email Address
+         </label>
+         <input id="email" placeholder="Your email" required="" type="email"/>
+        </div>
+        <div class="form-field">
+         <label for="message">
+          Message
+         </label>
+         <textarea id="message" placeholder="Write your enquiry" required=""></textarea>
+        </div>
+        <button class="button submit" type="submit">
+         Submit Enquiry
+        </button>
+       </form>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="container footer-inner">
+    <span>
+     © 2026
+     <strong>
+      ABC College of Technology
+     </strong>
+     . All rights reserved.
+    </span>
+    <span>
+     Knowledge · Innovation · Excellence
+    </span>
+   </div>
+  </footer>
+  <script>
+   function toggleNav() {
+    
+ const nav=document.getElementById('navLinks');
+    
+ const btn=document.querySelector('.menu-btn');
+    
+ nav.classList.toggle('open');
+    
+ btn.setAttribute('aria-expanded',nav.classList.contains('open'));
+}
+}
 
-    <main class="container">
-        <section class="hero">
-            <h2>Welcome to ABC College</h2>
-            <p>
-                ABC College of Technology is a leading institution providing
-                quality education in Computer Science, Information Technology
-                and Management.
-            </p>
-        </section>
-
-        <h2 class="section-title">Our Courses</h2>
-        <section class="courses">
-            <div class="card"><div class="icon">💻</div><h3>BCA</h3><p>Bachelor of Computer Applications</p></div>
-            <div class="card"><div class="icon">🎓</div><h3>MCA</h3><p>Master of Computer Applications</p></div>
-            <div class="card"><div class="icon">⚙️</div><h3>B.Tech</h3><p>Computer Science</p></div>
-            <div class="card"><div class="icon">🚀</div><h3>M.Tech</h3><p>Computer Science</p></div>
-        </section>
-
-        <h2 class="section-title">Latest News</h2>
-        <section class="news">
-            <ol>
-                <li>Admission open for 2026-27</li>
-                <li>Annual Technical Fest will be held in September</li>
-                <li>Registration open for Internship Program</li>
-            </ol>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2026 ABC College of Technology. All Rights Reserved.</p>
-    </footer>
-</body>
+function closeNav() {
+    
+ document.getElementById('navLinks').classList.remove('open');
+    
+ document.querySelector('.menu-btn').setAttribute('aria-expanded','false');
+}
+  </script>
+ </body>
 </html>
+
